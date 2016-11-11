@@ -1,9 +1,8 @@
 <?php
-
 // accept a term (keyword)
 // respond with a value
-
 $query = $_GET['q'];
+$all = $_GET['all'];
 $definition = [
     "definition" => "A statement of the exact meaning of a word, especially in a dictionary.",
     "bar" => "A place that sells alcholic beverages",
@@ -14,5 +13,26 @@ $definition = [
     "php" => "A server-side scripting language, and a powerful tool for making dynamic and interactive websites",
 ];
 
-print "<h3>" . strtoupper($query) . "</h3>";
-print "<p>" . $definition[$query] . "</p>";
+if(!$all){
+	print "<h3>" . strtoupper($query) . "</h3>";
+	print "<p>" . $definition[$query] . "</p>";
+	
+} else {
+	header('Content-Type: text/xml');
+	$xmldata = "<?xml version='1.0' encoding='UTF-8'?>
+<definitions>";
+	
+	foreach($definition as $key=>$term){
+		$xmldata.="
+	<term>
+		<name>".$key."</name>
+		<author>".strtoupper(substr($key, 0, 3))." author</author>
+		<definition>".$term."</definition>
+	</term>";
+	}
+	$xmldata.="
+</definitions>";
+	$xmlOutput = new SimpleXMLElement($xmldata);
+	echo $xmlOutput->asXML();
+}
+?>
