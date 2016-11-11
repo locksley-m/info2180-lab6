@@ -1,0 +1,28 @@
+header{
+    color: #FFFFFF; 
+    background-color: #895DD3;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+#container{
+    background-color: #D5F5E3;
+    border-radius: 10px;
+    padding: 8px;
+    
+}
+
+#input_request{
+    padding: 4px;
+    border: 1px solid #6699ff;
+    border-radius: 2px;
+}
+
+#submit_button{
+    border: 1px solid #3399ff;
+    border-radius: 2px;
+    background-color: #3399ff;
+    padding: 4px;
+    color: #ffffff;
+    font-style: bold;
+}
