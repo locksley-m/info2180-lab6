@@ -26,7 +26,7 @@ if(!$all){
 		$xmldata.="
 	<term>
 		<name>".$key."</name>
-		<author>".strtoupper(substr($key, 0, 3))." author</author>
+		<author>Author : ".strtoupper($key)." </author>
 		<definition>".$term."</definition>
 	</term>";
 	}
